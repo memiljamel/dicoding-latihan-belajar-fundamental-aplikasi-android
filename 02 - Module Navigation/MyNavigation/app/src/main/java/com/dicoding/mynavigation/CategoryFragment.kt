@@ -25,16 +25,20 @@ class CategoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // Kirim data dengan bundle
-        // val mBundle = Bundle()
-        // mBundle.putString(EXTRA_NAME, "Lifestyle")
-        // mBundle.putLong(EXTRA_STOCK, 7)
-        // view.findNavController().navigate(R.id.action_categoryFragment_to_detailCategoryFragment, mBundle)
+        // binding.btnCategoryLifestyle.setOnClickListener {
+        //    val mBundle = Bundle()
+        //    mBundle.putString(EXTRA_NAME, "Lifestyle")
+        //    mBundle.putLong(EXTRA_STOCK, 7)
+        //    view.findNavController().navigate(R.id.action_categoryFragment_to_detailCategoryFragment, mBundle)
+        // }
 
         // Kirim data dengan safe-args
-        val toDetailCategoryFragment = CategoryFragmentDirections.actionCategoryFragmentToDetailCategoryFragment()
-        toDetailCategoryFragment.name = "Lifestyle"
-        toDetailCategoryFragment.stock = 7
-        view.findNavController().navigate(toDetailCategoryFragment)
+        binding.btnCategoryLifestyle.setOnClickListener {
+            val toDetailCategoryFragment = CategoryFragmentDirections.actionCategoryFragmentToDetailCategoryFragment()
+            toDetailCategoryFragment.name = "Lifestyle"
+            toDetailCategoryFragment.stock = 7
+            view.findNavController().navigate(toDetailCategoryFragment)
+        }
     }
 
     override fun onDestroy() {
