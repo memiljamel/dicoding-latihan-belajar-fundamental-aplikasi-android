@@ -45,7 +45,7 @@ class DetailCategoryFragment : Fragment() {
             tvCategoryDescription.text = description
         }
 
-        btnShowDialog.setOnClickListener{
+        btnShowDialog.setOnClickListener {
             val optionDialogFragment = OptionDialogFragment()
             val fragmentManager = childFragmentManager
             optionDialogFragment.show(fragmentManager, OptionDialogFragment::class.java.simpleName)
