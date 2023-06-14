@@ -25,22 +25,6 @@ class MainActivity : AppCompatActivity() {
         // val handler = Handler(Looper.getMainLooper())
 
         btnStart.setOnClickListener {
-            lifecycleScope.launch(Dispatchers.Default) {
-                // simulate process in background thread
-                for (i in 0..10) {
-                    delay(500)
-                    val percentage = i * 10
-                    withContext(Dispatchers.Main) {
-                        // update ui in main thread
-                        if (percentage == 100) {
-                            tvStatus.setText(R.string.task_completed)
-                        } else {
-                            tvStatus.text = String.format(getString(R.string.compressing), percentage)
-                        }
-                    }
-                }
-            }
-
 //            // executor.execute {
 //                try {
 //                    for (i in 0..10) {
@@ -59,6 +43,22 @@ class MainActivity : AppCompatActivity() {
 //                    e.printStackTrace()
 //                }
 //            // }
+
+            lifecycleScope.launch(Dispatchers.Default) {
+                // simulate process in background thread
+                for (i in 0..10) {
+                    delay(500)
+                    val percentage = i * 10
+                    withContext(Dispatchers.Main) {
+                        // update ui in main thread
+                        if (percentage == 100) {
+                            tvStatus.setText(R.string.task_completed)
+                        } else {
+                            tvStatus.text = String.format(getString(R.string.compressing), percentage)
+                        }
+                    }
+                }
+            }
         }
 
 
